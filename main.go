@@ -4,11 +4,19 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"bufio"
+	"mastering-go/get_start"
+	
+
 )
 
 func main() {
+
+	// fmt.Println("hello world")
+	// get_start.StartApp()
 	
+	// get_start.GetURL()
+
+	get_start.StartFetch()
 }
 
 // 获取命令行参数
@@ -39,19 +47,3 @@ func geCommandArgs() {
 	fmt.Println(strings.Join(os.Args[1:], " "))
 }
 
-// 查找重复行
-
-func getDuplicateLines() {
-	counts := make(map[string]int)
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		counts[input.Text()]++
-
-	}
-
-	for line, n := range counts {
-		if n > 1 {
-			fmt.Printf("%d\t%s\n", n, line)
-		}
-	}
-}
